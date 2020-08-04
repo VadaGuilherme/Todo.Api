@@ -1,0 +1,19 @@
+version: "3.2"
+
+services:
+  sql.data:
+    image: microsoft/mssql-server-linux
+    container_name: dev_sql
+    environment:
+      - SA_PASSWORD=todo2317#
+      - ACCEPT_EULA=Y
+    ports:
+      - "14333:1433"
+    volumes:
+      - ./data/SQLServer:/var/opt/mssql/data
+    networks: 
+      - simpletodo-cwi-network
+
+networks: 
+    simpletodo-cwi-network: 
+        driver: bridge
